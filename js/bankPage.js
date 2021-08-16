@@ -1,41 +1,41 @@
 function getValue(inputBox, presentSituation, isDeposit) {
 
-    const depositFiled = document.getElementById(inputBox);                      /* Call deposit Input Box */
-    const depositBox = depositFiled.value;                                       /* Get deposit Input Value from Input Box */
+    const inputField = document.getElementById(inputBox);                      /* Call deposit Input Box */
+    const inputFieldValue = inputField.value;                                       /* Get deposit Input Value from Input Box */
     const presentBalanceText = document.getElementById("present-balance");       /* Call Present Balance Box */
     const presentBalance = parseFloat(presentBalanceText.innerText);             /* Convert Present Balance Into a float from text */
     if (isDeposit == true) {
-        if (depositBox > 0) {
-            const presentDepositText = document.getElementById(presentSituation);/* Call peresent Deposit Box */
-            const presentDeposit = parseFloat(presentDepositText.innerText)      /* Convert Text into float Number */
-            let totalDeposit = presentDeposit + parseFloat(depositBox)           /* Add Total deposit ammount in Deposit Box */
-            presentDepositText.innerText = totalDeposit;                         /* Convert Total deposit into a Text */
+        if (inputFieldValue > 0) {
+            const presentTextOfBox = document.getElementById(presentSituation);/* Call peresent Deposit Box */
+            const presentBox = parseFloat(presentTextOfBox.innerText)      /* Convert Text into float Number */
+            let totalAmount = presentBox + parseFloat(inputFieldValue)           /* Add Total deposit ammount in Deposit Box */
+            presentTextOfBox.innerText = totalAmount;                         /* Convert Total deposit into a Text */
         }
     }
-    else if (depositBox <= presentBalance && depositBox > 0) {
-        const presentDepositText = document.getElementById(presentSituation);    /* Call peresent Deposit Box */
-        const presentDeposit = parseFloat(presentDepositText.innerText)          /* Convert Text into float Number */
-        let totalDeposit = presentDeposit + parseFloat(depositBox)               /* Add Total deposit ammount in Deposit Box */
-        presentDepositText.innerText = totalDeposit;                             /* Convert Total deposit into a Text */
+    else if (inputFieldValue <= presentBalance && inputFieldValue > 0) {
+        const presentTextOfBox = document.getElementById(presentSituation);    /* Call peresent Deposit Box */
+        const presentBox = parseFloat(presentTextOfBox.innerText)          /* Convert Text into float Number */
+        let totalAmount = presentBox + parseFloat(inputFieldValue)               /* Add Total deposit ammount in Deposit Box */
+        presentTextOfBox.innerText = totalAmount;                             /* Convert Total deposit into a Text */
     }
 }
 
 function totalBalance(inputBox, isAdd) {
-    const depositFiled = document.getElementById(inputBox);
-    const depositBox = depositFiled.value;                                       /* Get deposit Input Value from Input Box */
+    const inputField = document.getElementById(inputBox);
+    const inputFieldValue = inputField.value;                                       /* Get deposit Input Value from Input Box */
     const presentBalanceText = document.getElementById("present-balance");       /* Call Present Balance Box */
     const presentBalance = parseFloat(presentBalanceText.innerText);             /* Convert Present Balance Into a float from text */
-    if (isAdd == true && depositBox > 0) {
-        let totalBalance = presentBalance + parseFloat(depositBox)               /* Create Total Of balance */
+    if (isAdd == true && inputFieldValue > 0) {
+        let totalBalance = presentBalance + parseFloat(inputFieldValue)               /* Create Total Of balance */
         presentBalanceText.innerText = totalBalance;                             /* Add as a text */
     }
-    else if (isAdd == false && depositBox > 0) {
-        if (depositBox <= presentBalance) {
-            let totalBalance = presentBalance - parseFloat(depositBox)           /* Create Total Of balance */
+    else if (isAdd == false && inputFieldValue > 0) {
+        if (inputFieldValue <= presentBalance) {
+            let totalBalance = presentBalance - parseFloat(inputFieldValue)           /* Create Total Of balance */
             presentBalanceText.innerText = totalBalance;                         /* Add as a text */
         }
     }
-    depositFiled.value = '';                                                     /* Clear Deposit input Box */
+    inputField.value = '';                                                     /* Clear Deposit input Box */
 }
 
 document.getElementById("deposit-btn").addEventListener("click", function () {
